@@ -50,7 +50,7 @@ const projectsData: Record<string, ProjectData> = {
     title: 'PokeCoach - Multiplayer Battle Platform',
     description: 'A modern multiplayer battle platform that brings together classic game mechanics with real-time web technology. Provides competitive turn-based battles through WebSocket communication, offering strategic depth with containerized microservices architecture.',
     technologies: ['Node.js', 'Socket.IO', 'Python', 'FastAPI', 'Docker'],
-    image: 'https://images.unsplash.com/photo-1639803812104-749c0f7961cb?q=80&w=2000&auto=format&fit=crop',
+    image: 'https://github.com/muhkartal/pokeCoach-AI-Coach/raw/main/images/1.png',
     githubUrl: 'https://github.com',
     year: '2025',
     keyFeatures: [
@@ -70,9 +70,9 @@ const projectsData: Record<string, ProjectData> = {
       { name: 'Monitoring', description: 'Prometheus metrics and Grafana visualization' }
     ],
     screenshots: [
-      { url: 'https://images.unsplash.com/photo-1614294148960-9e740db8d370?q=80&w=2000&auto=format&fit=crop', caption: 'Battle Interface' },
-      { url: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2000&auto=format&fit=crop', caption: 'Team Builder' },
-      { url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop', caption: 'Analytics Dashboard' }
+      { url: 'https://github.com/muhkartal/pokeCoach-AI-Coach/raw/main/images/4.png', caption: 'Battle Interface' },
+      { url: 'https://github.com/muhkartal/pokeCoach-AI-Coach/raw/main/images/2.png', caption: 'Team Builder' },
+      { url: 'https://github.com/muhkartal/pokeCoach-AI-Coach/raw/main/images/6.png', caption: 'Multiplayer Matches' }
     ]
   },
   'webgl-cosmic-visualizations': {
@@ -80,7 +80,7 @@ const projectsData: Record<string, ProjectData> = {
     title: 'WebGL Cosmic Visualizations',
     description: 'An interactive 3D visualization project featuring WebGL-powered fractal and particle simulations rendered entirely in the browser. The project leverages GPU-accelerated rendering through WebGL and custom GLSL shaders to create mesmerizing cosmic landscapes and particle systems that respond to user interaction in real time, featuring high-performance 3D fractal and particle simulations.',
     technologies: ['WebGL 2.0', 'GLSL ES 3.0', 'JavaScript', 'Ray-marching', 'Transform Feedback', 'Curl Noise', 'CSS Grid', 'Flexbox'],
-    image: 'https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?q=80&w=2000&auto=format&fit=crop',
+    image: 'https://github.com/muhkartal/webGL-cosmicVisualizations/raw/main/fig/particles-light.png',
     githubUrl: 'https://github.com',
     liveUrl: 'https://example.com',
     year: '2024',
@@ -114,7 +114,7 @@ const projectsData: Record<string, ProjectData> = {
     title: 'LLM Output Verifier',
     description: 'An enterprise-grade production-ready system that analyzes chain-of-thought (CoT) reasoning from large language models, scrutinizing each reasoning step to classify it as either grounded or hallucinated. The pipeline leverages the GSM8K (Grade School Math 8K) dataset, augmenting it with carefully designed synthetic corruptions to create high-quality training data, achieving 94.3% accuracy on benchmark datasets.',
     technologies: ['Python 3.9+', 'FastAPI', 'Streamlit', 'Transformers', 'PyTorch', 'Docker', 'Weights & Biases', 'Pydantic', 'GitHub Actions'],
-    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop',
+    image: 'https://github.com/muhkartal/llm-outputVerifier/raw/main/images/llm-outputVerifier.png',
     githubUrl: 'https://github.com',
     year: '2024',
     keyFeatures: [
@@ -147,7 +147,7 @@ const projectsData: Record<string, ProjectData> = {
     title: 'SLAM AI - Istanbul Canyon',
     description: 'Enhancing drone Visual Odometry/SLAM robustness in simulated İstanbul urban canyons. This project improves Visual SLAM algorithms for drone navigation in challenging urban environments using machine learning techniques to enhance feature detection, description, and loop closure under difficult conditions like poor lighting, textureless surfaces, and GPS-denied environments.',
     technologies: ['Python', 'PyTorch', 'AirSim', 'ORB-SLAM3', 'OpenCV', 'CUDA', 'NumPy', 'TensorBoard'],
-    image: 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?q=80&w=2000&auto=format&fit=crop',
+    image: 'https://github.com/muhkartal/slamAI-istanbulCanyon/raw/main/images/slamAI-istanbulCanyon.png',
     githubUrl: 'https://github.com',
     year: '2023',
     keyFeatures: [
@@ -174,7 +174,7 @@ const projectsData: Record<string, ProjectData> = {
     title: 'VitalAI - Health Tracking',
     description: 'A state-of-the-art personal health assistant powered by artificial intelligence and machine learning. Provides comprehensive symptom analysis, identifies potential medical conditions, uncovers health patterns, and delivers personalized insights through an intuitive interface.',
     technologies: ['Python', 'Streamlit', 'TensorFlow', 'OpenAI API', 'PostgreSQL'],
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2000&auto=format&fit=crop',
+    image: 'https://github.com/muhkartal/vitalAI-healthTracking/raw/main/img/page1.png',
     githubUrl: 'https://github.com',
     year: '2025',
     keyFeatures: [

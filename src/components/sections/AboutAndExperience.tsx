@@ -164,14 +164,14 @@ export function AboutAndExperience() {
     },
     {
       title: 'AI Engineer Intern',
-      company: 'BLUESENSE · Full-time',
+      company: 'BLUESENSE · Intern',
       period: 'Jun 2025 - Aug 2025 · 3 mos',
       description: 'Developing <span class="font-semibold text-neutral-900 dark:text-neutral-100">new features and APIs</span> for Bluesense\'s <span class="font-semibold text-neutral-900 dark:text-neutral-100">cloud-based sensor-analytics platform</span>, <span class="font-semibold text-neutral-900 dark:text-neutral-100">automating tests/deployments</span>, and presenting <span class="font-semibold text-neutral-900 dark:text-neutral-100">ML research insights</span> to the engineering team. Location: Vancouver, British Columbia, Canada · Remote',
       technologies: ['Python', 'Machine Learning', 'API Development', 'Cloud Computing', 'Automation', 'Testing']
     },
     {
       title: 'Software Engineer Intern',
-      company: 'Halic Universitesi · Part-time',
+      company: 'Halic Universitesi · Intern',
       period: 'Jun 2024 - Jun 2025 · 1 yr 1 mo',
       description: 'Develop and maintain <span class="font-semibold text-neutral-900 dark:text-neutral-100">web applications</span> for university administrative systems, focusing on <span class="font-semibold text-neutral-900 dark:text-neutral-100">performance</span> and <span class="font-semibold text-neutral-900 dark:text-neutral-100">usability</span>. Location: On-site',
       technologies: ['JavaScript', 'React', 'Web Development', 'Database Management', 'UI/UX']
