@@ -25,7 +25,7 @@ const projectsData: Record<string, ProjectData> = {
     title: 'FR Framework',
     description: 'A comprehensive, modular face recognition framework offering everything from basic face detection to advanced facial analytics. Built with flexibility and performance in mind, providing a complete solution for facial recognition technology.',
     technologies: ['Python', 'OpenCV', 'dlib', 'FastAPI', 'Docker'],
-    image: 'https://images.unsplash.com/photo-1555952494-bbd6f602e83f?q=80&w=2000&auto=format&fit=crop',
+    image: 'https://raw.githubusercontent.com/muhkartal/fr-framework/main/images/fr-light.png',
     githubUrl: 'https://github.com',
     year: '2024',
     keyFeatures: [
