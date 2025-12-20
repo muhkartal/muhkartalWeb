@@ -313,7 +313,7 @@ export function HomePage() {
                 Contact Me
               </button>
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/muhkartal"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2 rounded-full border border-black/20 dark:border-white/20 bg-white/50 dark:bg-black/50 backdrop-blur-md text-black dark:text-white tracking-wider transition-all duration-300 hover:bg-black/10 dark:hover:bg-white/10 hover:scale-105 w-full sm:w-auto justify-center"

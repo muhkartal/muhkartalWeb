@@ -164,7 +164,7 @@ export function Footer() {
                 </motion.a>
 
                 <motion.a
-                  href=""
+                  href="https://linkedin.com/in/muhammed-ibrahim-kartal"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group p-3 rounded-lg border border-neutral-200 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500 transition-all duration-300 hover:bg-neutral-50 dark:hover:bg-neutral-900"

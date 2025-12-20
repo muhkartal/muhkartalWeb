@@ -26,11 +26,11 @@ export function Header() {
               <MapPin className="w-4 h-4" />
               <span>San Francisco, CA</span>
             </div>
-            <a href="https:
+            <a href="https://linkedin.com/in/muhammed-ibrahim-kartal" className="flex items-center gap-2 hover:text-black transition-colors" target="_blank" rel="noopener noreferrer">
               <Linkedin className="w-4 h-4" />
               <span>LinkedIn</span>
             </a>
-            <a href="https:
+            <a href="https://github.com/muhkartal" className="flex items-center gap-2 hover:text-black transition-colors" target="_blank" rel="noopener noreferrer">
               <Github className="w-4 h-4" />
               <span>GitHub</span>
             </a>
