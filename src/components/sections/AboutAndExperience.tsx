@@ -218,7 +218,7 @@ export function AboutAndExperience() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          Experienced software engineer with <span className="font-semibold text-neutral-900 dark:text-neutral-100">8+ years</span> of expertise in building <span className="font-semibold text-neutral-900 dark:text-neutral-100">scalable web applications</span> and <span className="font-semibold text-neutral-900 dark:text-neutral-100">distributed systems</span>. Passionate about <span className="font-semibold text-neutral-900 dark:text-neutral-100">clean code</span>, <span className="font-semibold text-neutral-900 dark:text-neutral-100">system architecture</span>, and <span className="font-semibold text-neutral-900 dark:text-neutral-100">mentoring junior developers</span>. Proven track record of delivering <span className="font-semibold text-neutral-900 dark:text-neutral-100">high-impact projects</span> in fast-paced environments.
+          Software Engineer and Haliç University graduate with a strong foundation in <span className="font-semibold text-neutral-900 dark:text-neutral-100">leadership and innovation</span>. As the former Lead of <span className="font-semibold text-neutral-900 dark:text-neutral-100">Google Developer Student Clubs (GDSC)</span> and Team Leader of the <span className="font-semibold text-neutral-900 dark:text-neutral-100">Altair Team (Teknofest 2025 UAV Competition)</span>, I specialize in uniting technology enthusiasts and driving complex projects to success. Passionate about <span className="font-semibold text-neutral-900 dark:text-neutral-100">system architecture</span>, continuous learning, and making a tangible impact in the tech world.
         </motion.p>
       </motion.div>
 
