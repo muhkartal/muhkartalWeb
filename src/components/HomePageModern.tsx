@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Mail, Github, Terminal } from 'lucide-react';
+import { Mail, Github } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'motion/react';
-import { useNavigate } from 'react-router-dom';
 import { AboutAndExperience } from './sections/AboutAndExperience';
 import { Projects } from './sections/Projects';
 import { Footer } from './sections/Footer';
@@ -12,7 +11,6 @@ import { useOptimizedScroll } from './hooks/useOptimizedScroll';
 export function HomePage() {
   const [activeSection, setActiveSection] = useState('home');
   const { theme, toggleTheme } = useTheme();
-  const navigate = useNavigate();
 
   // Parallax scroll effects - using Motion's optimized useScroll
   const { scrollY } = useScroll();
@@ -140,14 +138,6 @@ export function HomePage() {
               Connect
             </button>
           </div>
-          <button 
-            onClick={() => navigate('/terminal')}
-            className="p-2 rounded-lg border border-neutral-200 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500 transition-all duration-300" 
-            aria-label="Switch to terminal mode"
-            title="Terminal Mode"
-          >
-            <Terminal className="w-4 h-4 text-neutral-400 dark:text-neutral-400" />
-          </button>
           <button 
             onClick={toggleTheme}
             className="p-2 rounded-lg border border-neutral-200 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500 transition-all duration-300" 
@@ -448,3 +438,4 @@ export function HomePage() {
     </div>
   );
 }
+

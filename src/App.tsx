@@ -1,7 +1,5 @@
 import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { HomePage } from './components/HomePage';
-import { ProjectDetail } from './components/ProjectDetail';
-import { ExperienceGallery } from './components/sections/ExperienceGallery';
+import { TerminalPage } from './components/TerminalPage';
 import { ThemeProvider } from './components/ThemeProvider';
 
 import { RootLayout } from './layouts/RootLayout';
@@ -12,9 +10,7 @@ export default function App() {
       <Router>
         <RootLayout>
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/project/:projectId" element={<ProjectDetail />} />
-            <Route path="/experience" element={<ExperienceGallery />} />
+            <Route path="/" element={<TerminalPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </RootLayout>
