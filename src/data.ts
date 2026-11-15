@@ -138,9 +138,3 @@ export const projects: Project[] = [
     image: 'https://github.com/muhkartal/llm-outputVerifier/raw/main/images/llm-outputVerifier.png',
   },
 ];
-
-export const skills = [
-  { group: 'Languages', items: ['TypeScript', 'JavaScript', 'Python', 'C#', 'SQL'] },
-  { group: 'Frontend', items: ['React', 'Next.js', 'Tailwind CSS', 'Three.js', 'WebGL', 'HTML5 / CSS3'] },
-  { group: 'Backend & Tools', items: ['Node.js', 'PostgreSQL', 'Docker', 'Git', 'AWS / Cloud'] },
-];
