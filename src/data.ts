@@ -89,7 +89,6 @@ export const projects: Project[] = [
     description:
       'Keeps Windows Active Directory in sync with student and staff records: accounts, OU placement and groups, fully automated.',
     stack: ['.NET 8', 'PostgreSQL', 'Active Directory'],
-    image: '/projects/ad-automation.webp',
   },
   {
     title: 'Integration layer',
@@ -98,7 +97,6 @@ export const projects: Project[] = [
     description:
       'One API over five university data sources (YÖKSİS, MERNİS, OBS, Canias ERP, Proliz), keeping student and staff records in sync.',
     stack: ['C#', '.NET', 'Hangfire'],
-    image: '/projects/integration.webp',
   },
   {
     title: 'Esenyurt Mobil',
