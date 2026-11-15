@@ -51,7 +51,10 @@ export type Project = {
   date: string;
   description: string;
   stack: string[];
-  href: string;
+  /** Public link. Work projects in private repos have none. */
+  href?: string;
+  /** Headline number shown as a badge, e.g. "5,000+ users". */
+  stat?: string;
   /** Screenshot shown on hover in the project list (desktop). */
   image?: string;
 };
@@ -70,13 +73,41 @@ export const featured = {
 
 export const projects: Project[] = [
   {
-    title: 'vital-ai',
-    date: 'Mar 2025',
+    title: 'Çözüm Merkezi',
+    date: 'Sep 2026',
+    stat: '15,000+ users',
     description:
-      'AI health assistant with symptom analysis, an NLP engine and medical literature integration.',
-    stack: ['Python', 'TensorFlow', 'OpenAI', 'Streamlit'],
-    href: 'https://github.com/muhkartal/vitalAI-healthTracking',
-    image: 'https://github.com/muhkartal/vitalAI-healthTracking/raw/main/img/page1.png',
+      'The university feedback portal: requests and complaints tracked by reference code and handled from a staff portal with SSO.',
+    stack: ['Next.js', 'TypeScript', 'SQL Server', 'SSO'],
+    href: 'https://cozummerkezi.esenyurt.edu.tr',
+    image: '/projects/cozum-merkezi.webp',
+  },
+  {
+    title: 'Active Directory automation',
+    date: 'Mar 2026',
+    stat: '20,000+ accounts',
+    description:
+      'Keeps Windows Active Directory in sync with student and staff records: accounts, OU placement and groups, fully automated.',
+    stack: ['.NET 8', 'PostgreSQL', 'Active Directory'],
+    image: '/projects/ad-automation.webp',
+  },
+  {
+    title: 'Integration layer',
+    date: 'Dec 2025',
+    stat: '20,000+ records',
+    description:
+      'One API over five university data sources (YÖKSİS, MERNİS, OBS, Canias ERP, Proliz), keeping student and staff records in sync.',
+    stack: ['C#', '.NET', 'Hangfire'],
+    image: '/projects/integration.webp',
+  },
+  {
+    title: 'Esenyurt Mobil',
+    date: 'Oct 2025',
+    stat: '5,000+ users',
+    description:
+      'The university mobile app: courses, campus map, digital student ID and services, in Turkish and English.',
+    stack: ['React Native', 'Expo', 'TypeScript'],
+    image: '/projects/esenyurt-mobil.webp',
   },
   {
     title: 'slam-ai',
@@ -94,31 +125,5 @@ export const projects: Project[] = [
     stack: ['Node.js', 'Socket.IO', 'Python', 'Redis'],
     href: 'https://github.com/muhkartal/pokeCoach-AI-Coach',
     image: 'https://github.com/muhkartal/pokeCoach-AI-Coach/raw/main/images/1.png',
-  },
-  {
-    title: 'fr-framework',
-    date: 'Dec 2024',
-    description:
-      'Modular face recognition framework with 68-point landmark detection, HOG/CNN models and a REST API.',
-    stack: ['Python', 'OpenCV', 'FastAPI', 'Docker'],
-    href: 'https://github.com/muhkartal/fr-framework',
-    image: 'https://raw.githubusercontent.com/muhkartal/fr-framework/main/images/fr-light.png',
-  },
-  {
-    title: 'webgl-cosmic',
-    date: 'Nov 2024',
-    description: 'GPU-accelerated 3D fractal simulations using ray-marching and custom GLSL shaders.',
-    stack: ['WebGL 2.0', 'GLSL', 'JavaScript'],
-    href: 'https://github.com/muhkartal/webGL-cosmicVisualizations',
-    image: 'https://github.com/muhkartal/webGL-cosmicVisualizations/raw/main/fig/particles-light.png',
-  },
-  {
-    title: 'llm-verifier',
-    date: 'Oct 2024',
-    description:
-      'LLM output verification system with hallucination detection and fact-checking pipelines.',
-    stack: ['Python', 'LangChain', 'PostgreSQL'],
-    href: 'https://github.com/muhkartal/llm-outputVerifier',
-    image: 'https://github.com/muhkartal/llm-outputVerifier/raw/main/images/llm-outputVerifier.png',
   },
 ];

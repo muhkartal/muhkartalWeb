@@ -159,36 +159,53 @@ export function Projects() {
 
       <h3 className="reveal mt-10 mb-1 text-[13px] text-fg-3">More projects</h3>
       <ul className="-mx-3 sm:-mx-4" onPointerLeave={() => setImg(null)}>
-        {projects.map((p, i) => (
-          <li key={p.title} className="reveal" style={{ '--d': i } as React.CSSProperties}>
-            <a
-              href={p.href}
-              target="_blank"
-              rel="noreferrer"
-              onPointerEnter={(e) => {
-                if (!hoverable) return;
-                move(e);
-                setImg(p.image ?? null);
-              }}
-              onPointerMove={hoverable ? move : undefined}
-              className="group block rounded-xl px-3 py-4 transition-colors duration-300 hover:bg-surface sm:px-4"
-            >
+        {projects.map((p, i) => {
+          const rowProps = {
+            onPointerEnter: (e: React.PointerEvent) => {
+              if (!hoverable) return;
+              move(e);
+              setImg(p.image ?? null);
+            },
+            onPointerMove: hoverable ? move : undefined,
+            className:
+              'group block rounded-xl px-3 py-4 transition-colors duration-300 hover:bg-surface sm:px-4',
+          };
+          const body = (
+            <>
               <div className="flex items-baseline justify-between gap-4">
-                <h4 className="flex items-center gap-2 text-[15px] font-medium text-fg">
+                <h4 className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1 text-[15px] font-medium text-fg">
                   {p.title}
-                  <ArrowUpRight
-                    width={14}
-                    height={14}
-                    className="-translate-x-1 translate-y-0.5 text-fg-3 opacity-0 transition-all duration-300 ease-out-soft group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100"
-                  />
+                  {p.stat && (
+                    <span className="rounded-full bg-accent-soft px-2 py-px font-mono text-[11px] font-normal text-accent">
+                      {p.stat}
+                    </span>
+                  )}
+                  {p.href && (
+                    <ArrowUpRight
+                      width={14}
+                      height={14}
+                      className="-translate-x-1 translate-y-0.5 text-fg-3 opacity-0 transition-all duration-300 ease-out-soft group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100"
+                    />
+                  )}
                 </h4>
                 <span className="shrink-0 font-mono text-xs text-fg-3">{p.date}</span>
               </div>
               <p className="mt-1.5 text-sm leading-relaxed text-fg-2">{p.description}</p>
               <p className="mt-2.5 font-mono text-[11px] text-fg-3">{p.stack.join('  /  ')}</p>
-            </a>
-          </li>
-        ))}
+            </>
+          );
+          return (
+            <li key={p.title} className="reveal" style={{ '--d': i } as React.CSSProperties}>
+              {p.href ? (
+                <a href={p.href} target="_blank" rel="noreferrer" {...rowProps}>
+                  {body}
+                </a>
+              ) : (
+                <div {...rowProps}>{body}</div>
+              )}
+            </li>
+          );
+        })}
       </ul>
 
       <div className="reveal mt-6">
