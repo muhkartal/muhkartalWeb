@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { featured, profile, projects } from '../data';
+import { prefersReducedMotion } from '../lib/hooks';
 import { ArrowUpRight } from './Icons';
 import { Section } from './Section';
 
@@ -42,26 +43,78 @@ function usePreview() {
   return { box, img, setImg, move };
 }
 
+/**
+ * The koi pond itself, running live in the card. It mounts only when the card
+ * nears the viewport; the screenshot stays on top until the pond has drawn,
+ * then cross-fades away. Reduced-motion visitors keep the still image.
+ */
+function LivePond() {
+  const media = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    if (prefersReducedMotion() || !('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setMounted(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: '300px 0px' },
+    );
+    io.observe(media.current!);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <div ref={media} className="relative aspect-[9/4] overflow-hidden bg-[#050807]">
+      {mounted && (
+        <iframe
+          src={featured.embed}
+          title="Live koi pond. Move the pointer to stir the water, click to feed the koi."
+          loading="lazy"
+          onLoad={() => window.setTimeout(() => setReady(true), 450)}
+          // Taller than the frame so the pond's own hint caption is clipped
+          // (it wraps onto more lines on narrow screens, hence the larger margin).
+          className="absolute top-0 left-0 h-[calc(100%+88px)] w-full border-0 sm:h-[calc(100%+40px)]"
+        />
+      )}
+      <img
+        src={featured.image}
+        alt={featured.alt}
+        width={1080}
+        height={480}
+        loading="lazy"
+        decoding="async"
+        className={`pointer-events-none absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-out-soft ${
+          ready ? 'opacity-0' : 'opacity-100'
+        }`}
+      />
+      <span
+        aria-hidden="true"
+        className={`pointer-events-none absolute right-3 bottom-3 rounded-md bg-[#050807]/80 px-2 py-1 font-mono text-[10px] tracking-wide text-[#9fb3a9] transition-opacity delay-300 duration-700 ${
+          ready ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        <span className="hidden sm:inline">move to stir · click to feed</span>
+        <span className="sm:hidden">tap to feed</span>
+      </span>
+    </div>
+  );
+}
+
 function FeaturedCard() {
   return (
-    <a
-      href={featured.href}
-      target="_blank"
-      rel="noreferrer"
-      className="reveal group block overflow-hidden rounded-2xl border border-line bg-surface transition-[border-color,transform] duration-500 ease-out-soft hover:-translate-y-0.5 hover:border-fg-3/40"
-    >
-      <div className="overflow-hidden">
-        <img
-          src={featured.image}
-          alt={featured.alt}
-          width={1440}
-          height={640}
-          loading="lazy"
-          decoding="async"
-          className="block aspect-[9/4] w-full object-cover transition-transform duration-[1200ms] ease-out-soft group-hover:scale-[1.03]"
-        />
-      </div>
-      <div className="border-t border-line px-4 pt-4 pb-4.5 sm:px-5">
+    <div className="reveal group/card overflow-hidden rounded-2xl border border-line bg-surface transition-colors duration-500 hover:border-fg-3/40">
+      <LivePond />
+      <a
+        href={featured.href}
+        target="_blank"
+        rel="noreferrer"
+        className="group block border-t border-line px-4 pt-4 pb-4.5 sm:px-5"
+      >
         <div className="flex items-baseline justify-between gap-4">
           <h3 className="flex items-center gap-2 text-base font-medium text-fg">
             {featured.title}
@@ -79,8 +132,8 @@ function FeaturedCard() {
         </div>
         <p className="mt-1.5 text-sm leading-relaxed text-fg-2">{featured.description}</p>
         <p className="mt-2.5 font-mono text-[11px] text-fg-3">{featured.stack.join('  /  ')}</p>
-      </div>
-    </a>
+      </a>
+    </div>
   );
 }
 
