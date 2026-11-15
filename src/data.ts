@@ -63,7 +63,8 @@ export const featured = {
     'Koi swimming in a jade pond, drawn live in coloured ASCII. Stir the water, feed the koi.',
   stack: ['HTML', 'Canvas 2D', 'Generative ASCII'],
   href: 'https://muhkartal.github.io/koi-pond/',
-  image: '/projects/koi-pond.jpg',
+  image: '/projects/koi-pond.webp',
+  embed: 'https://muhkartal.github.io/koi-pond/?font=8&ks=1.8',
   alt: 'Koi pond drawn in coloured ASCII characters',
 };
 
