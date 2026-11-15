@@ -24,11 +24,3 @@ export function Section({
     </section>
   );
 }
-
-export function Chip({ children }: { children: ReactNode }) {
-  return (
-    <span className="inline-flex items-center rounded-md border border-line bg-surface px-2 py-0.5 font-mono text-[11px] leading-5 text-fg-3">
-      {children}
-    </span>
-  );
-}

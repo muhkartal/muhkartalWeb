@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { projects, profile } from '../data';
+import { featured, profile, projects } from '../data';
 import { ArrowUpRight } from './Icons';
 import { Section } from './Section';
 
@@ -42,6 +42,48 @@ function usePreview() {
   return { box, img, setImg, move };
 }
 
+function FeaturedCard() {
+  return (
+    <a
+      href={featured.href}
+      target="_blank"
+      rel="noreferrer"
+      className="reveal group block overflow-hidden rounded-2xl border border-line bg-surface transition-[border-color,transform] duration-500 ease-out-soft hover:-translate-y-0.5 hover:border-fg-3/40"
+    >
+      <div className="overflow-hidden">
+        <img
+          src={featured.image}
+          alt={featured.alt}
+          width={1440}
+          height={640}
+          loading="lazy"
+          decoding="async"
+          className="block aspect-[9/4] w-full object-cover transition-transform duration-[1200ms] ease-out-soft group-hover:scale-[1.03]"
+        />
+      </div>
+      <div className="border-t border-line px-4 pt-4 pb-4.5 sm:px-5">
+        <div className="flex items-baseline justify-between gap-4">
+          <h3 className="flex items-center gap-2 text-base font-medium text-fg">
+            {featured.title}
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-2 py-px font-mono text-[10px] font-normal tracking-wide text-accent uppercase">
+              <span className="h-1 w-1 rounded-full bg-accent" />
+              Live
+            </span>
+            <ArrowUpRight
+              width={14}
+              height={14}
+              className="-translate-x-1 translate-y-0.5 text-fg-3 opacity-0 transition-all duration-300 ease-out-soft group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100"
+            />
+          </h3>
+          <span className="shrink-0 font-mono text-xs text-fg-3">{featured.year}</span>
+        </div>
+        <p className="mt-1.5 text-sm leading-relaxed text-fg-2">{featured.description}</p>
+        <p className="mt-2.5 font-mono text-[11px] text-fg-3">{featured.stack.join('  /  ')}</p>
+      </div>
+    </a>
+  );
+}
+
 export function Projects() {
   const { box, img, setImg, move } = usePreview();
   const [hoverable, setHoverable] = useState(false);
@@ -59,7 +101,10 @@ export function Projects() {
   }, []);
 
   return (
-    <Section id="projects" title="Projects" aside={`${projects.length}`}>
+    <Section id="projects" title="Projects" aside={`${projects.length + 1}`}>
+      <FeaturedCard />
+
+      <h3 className="reveal mt-10 mb-1 text-[13px] text-fg-3">More projects</h3>
       <ul className="-mx-3 sm:-mx-4" onPointerLeave={() => setImg(null)}>
         {projects.map((p, i) => (
           <li key={p.title} className="reveal" style={{ '--d': i } as React.CSSProperties}>
@@ -76,20 +121,14 @@ export function Projects() {
               className="group block rounded-xl px-3 py-4 transition-colors duration-300 hover:bg-surface sm:px-4"
             >
               <div className="flex items-baseline justify-between gap-4">
-                <h3 className="flex items-center gap-2 text-[15px] font-medium text-fg">
+                <h4 className="flex items-center gap-2 text-[15px] font-medium text-fg">
                   {p.title}
-                  {p.live && (
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-2 py-px font-mono text-[10px] font-normal tracking-wide text-accent uppercase">
-                      <span className="h-1 w-1 rounded-full bg-accent" />
-                      Live
-                    </span>
-                  )}
                   <ArrowUpRight
                     width={14}
                     height={14}
                     className="-translate-x-1 translate-y-0.5 text-fg-3 opacity-0 transition-all duration-300 ease-out-soft group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100"
                   />
-                </h3>
+                </h4>
                 <span className="shrink-0 font-mono text-xs text-fg-3">{p.date}</span>
               </div>
               <p className="mt-1.5 text-sm leading-relaxed text-fg-2">{p.description}</p>

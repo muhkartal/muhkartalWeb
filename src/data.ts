@@ -1,9 +1,9 @@
 export const profile = {
   name: 'Muhammed Kartal',
-  role: 'Software Engineer · Full-Stack Developer',
+  role: 'Software Engineer · Computer Vision & Full-Stack',
   location: 'İstanbul',
   timeZone: 'Europe/Istanbul',
-  avatar: 'https://avatars.githubusercontent.com/u/83167307?v=4',
+  avatar: '/avatar.jpg',
   email: 'muhammed@muhkartal.dev',
   socials: [
     { label: 'GitHub', handle: 'github.com/muhkartal', href: 'https://github.com/muhkartal' },
@@ -16,11 +16,9 @@ export type Experience = {
   role: string;
   company: string;
   type: string;
-  period: string;
   location: string;
+  years: string;
   current?: boolean;
-  details: string[];
-  stack: string[];
 };
 
 export const experience: Experience[] = [
@@ -28,40 +26,23 @@ export const experience: Experience[] = [
     role: 'Software Engineer',
     company: 'İstanbul Esenyurt Üniversitesi',
     type: 'Full-time',
-    period: 'Sep 2025 – Present',
-    location: 'Esenyurt, İstanbul',
+    location: 'İstanbul',
+    years: '2025 – Now',
     current: true,
-    details: [
-      'Developing and maintaining university systems and web applications.',
-      'Contributing to the digital transformation of academic and administrative processes.',
-      'Ensuring high performance and scalability.',
-    ],
-    stack: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'REST APIs'],
   },
   {
     role: 'AI Engineer Intern',
     company: 'BLUESENSE',
     type: 'Internship',
-    period: 'Jun 2025 – Aug 2025',
     location: 'Vancouver, Canada · Remote',
-    details: [
-      'Developed new features and APIs for a cloud sensor-analytics platform.',
-      'Automated testing and deployment pipelines.',
-      'Presented ML research insights to the engineering team.',
-    ],
-    stack: ['Python', 'Machine Learning', 'Cloud Computing', 'Automation'],
+    years: '2025',
   },
   {
     role: 'Software Engineer Intern',
     company: 'Haliç Üniversitesi',
     type: 'Part-time',
-    period: 'Jun 2024 – Jun 2025',
-    location: 'İstanbul, Turkey',
-    details: [
-      'Developed administrative web systems.',
-      'Focused on UI/UX and performance improvements.',
-    ],
-    stack: ['JavaScript', 'React', 'Web Development'],
+    location: 'İstanbul',
+    years: '2024 – 2025',
   },
 ];
 
@@ -71,20 +52,22 @@ export type Project = {
   description: string;
   stack: string[];
   href: string;
+  /** Screenshot shown on hover in the project list (desktop). */
   image?: string;
-  live?: boolean;
+};
+
+export const featured = {
+  title: 'koi-pond',
+  year: '2026',
+  description:
+    'Koi swimming in a jade pond, drawn live in coloured ASCII. Stir the water, feed the koi.',
+  stack: ['HTML', 'Canvas 2D', 'Generative ASCII'],
+  href: 'https://muhkartal.github.io/koi-pond/',
+  image: '/projects/koi-pond.jpg',
+  alt: 'Koi pond drawn in coloured ASCII characters',
 };
 
 export const projects: Project[] = [
-  {
-    title: 'koi-pond',
-    date: 'Nov 2026',
-    description:
-      'Koi swimming in a jade pond, drawn live in coloured ASCII. Stir the water, feed the koi.',
-    stack: ['HTML', 'Canvas 2D', 'Generative ASCII'],
-    href: 'https://muhkartal.github.io/koi-pond/',
-    live: true,
-  },
   {
     title: 'vital-ai',
     date: 'Mar 2025',
@@ -97,8 +80,7 @@ export const projects: Project[] = [
   {
     title: 'slam-ai',
     date: 'Feb 2025',
-    description:
-      'Autonomous navigation system with ROS integration, SLAM and sensor fusion.',
+    description: 'Autonomous navigation system with ROS integration, SLAM and sensor fusion.',
     stack: ['Python', 'ROS', 'C++', 'OpenCV'],
     href: 'https://github.com/muhkartal/slamAI-istanbulCanyon',
     image: 'https://github.com/muhkartal/slamAI-istanbulCanyon/raw/main/images/slamAI-istanbulCanyon.png',
@@ -132,7 +114,8 @@ export const projects: Project[] = [
   {
     title: 'llm-verifier',
     date: 'Oct 2024',
-    description: 'LLM output verification system with hallucination detection and fact-checking pipelines.',
+    description:
+      'LLM output verification system with hallucination detection and fact-checking pipelines.',
     stack: ['Python', 'LangChain', 'PostgreSQL'],
     href: 'https://github.com/muhkartal/llm-outputVerifier',
     image: 'https://github.com/muhkartal/llm-outputVerifier/raw/main/images/llm-outputVerifier.png',

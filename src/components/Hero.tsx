@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { profile } from '../data';
 import { useClock } from '../lib/hooks';
 import { Banner } from './Banner';
@@ -64,7 +64,15 @@ export function Hero() {
           className="rise mt-1.5 text-[15px] text-fg-2"
           style={{ '--d': 3 } as React.CSSProperties}
         >
-          {profile.role}
+          {profile.role.split(' · ').map((part, i, all) => (
+            <Fragment key={part}>
+              {i > 0 && ' '}
+              <span className="whitespace-nowrap">
+                {part}
+                {i < all.length - 1 && <span className="text-fg-3"> ·</span>}
+              </span>
+            </Fragment>
+          ))}
         </p>
 
         <ul className="rise mt-4 flex items-center gap-1" style={{ '--d': 4 } as React.CSSProperties}>

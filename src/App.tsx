@@ -21,8 +21,8 @@ export default function App() {
       <Header name={profile.name} />
       <main id="main" className="mx-auto max-w-3xl px-5 sm:px-6">
         <Hero />
-        <Experience />
         <Projects />
+        <Experience />
         <Contact />
         <Footer />
       </main>

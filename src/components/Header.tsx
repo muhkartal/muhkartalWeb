@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useActiveSection, useScrolled, useTheme } from '../lib/hooks';
-import { MoonIcon, SunIcon } from './Icons';
+import { profile } from '../data';
+import { GitHubIcon, LinkedInIcon, MailIcon, MoonIcon, SunIcon } from './Icons';
+
+const SOCIAL_ICONS = { GitHub: GitHubIcon, LinkedIn: LinkedInIcon, Email: MailIcon } as const;
 
 const NAV = [
-  { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
+  { id: 'experience', label: 'Experience' },
   { id: 'contact', label: 'Contact' },
 ];
 const IDS = NAV.map((n) => n.id);
@@ -71,7 +74,9 @@ export function Header({ name }: { name: string }) {
             type="button"
             onClick={toggle}
             aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
-            className="relative ml-1 grid h-9 w-9 place-items-center rounded-lg text-fg-3 transition-colors hover:bg-surface hover:text-fg"
+            className={`relative ml-1 h-11 w-11 place-items-center rounded-lg text-fg-3 transition-colors hover:bg-surface hover:text-fg sm:grid sm:h-9 sm:w-9 ${
+              open ? 'hidden' : 'grid'
+            }`}
           >
             <SunIcon
               className={`absolute transition-all duration-500 ease-out-soft ${
@@ -91,7 +96,9 @@ export function Header({ name }: { name: string }) {
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? 'Close menu' : 'Open menu'}
-            className="relative grid h-9 w-9 place-items-center rounded-lg text-fg-3 transition-colors hover:bg-surface hover:text-fg sm:hidden"
+            className={`relative grid h-11 w-11 place-items-center rounded-lg transition-colors hover:bg-surface hover:text-fg sm:hidden ${
+              open ? 'bg-surface text-fg' : 'text-fg-3'
+            }`}
           >
             <span
               className={`absolute h-[1.5px] w-4 rounded-full bg-current transition-transform duration-300 ease-out-soft ${
@@ -113,7 +120,8 @@ export function Header({ name }: { name: string }) {
           open ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
         }`}
       >
-        <ul className="min-h-0 px-5 pb-3">
+        <div className="min-h-0">
+        <ul className="px-5">
           {NAV.map((n, i) => (
             <li
               key={n.id}
@@ -136,6 +144,51 @@ export function Header({ name }: { name: string }) {
             </li>
           ))}
         </ul>
+
+        <div
+          className={`mx-5 mb-3 flex items-center justify-between gap-3 border-t border-line pt-3 transition-opacity duration-500 ${
+            open ? 'opacity-100 delay-200' : 'opacity-0'
+          }`}
+        >
+          <ul className="-ml-3 flex">
+            {profile.socials.map((s) => {
+              const Icon = SOCIAL_ICONS[s.label as keyof typeof SOCIAL_ICONS];
+              return (
+                <li key={s.label}>
+                  <a
+                    href={s.href}
+                    target={s.href.startsWith('http') ? '_blank' : undefined}
+                    rel="noreferrer"
+                    aria-label={s.label}
+                    tabIndex={open ? 0 : -1}
+                    className="grid h-11 w-11 place-items-center text-fg-3 transition-colors hover:text-fg"
+                  >
+                    <Icon width={18} height={18} />
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+
+          <div role="group" aria-label="Theme" className="flex rounded-xl border border-line bg-surface p-[3px]">
+            {(['light', 'dark'] as const).map((t) => (
+              <button
+                key={t}
+                type="button"
+                tabIndex={open ? 0 : -1}
+                aria-pressed={theme === t}
+                onClick={() => theme !== t && toggle()}
+                className={`inline-flex h-[38px] items-center gap-1.5 rounded-[9px] px-3 text-[13px] capitalize transition-colors duration-300 ${
+                  theme === t ? 'bg-bg text-fg shadow-[0_1px_2px_rgb(0_0_0/0.12)]' : 'text-fg-3'
+                }`}
+              >
+                {t === 'light' ? <SunIcon width={14} height={14} /> : <MoonIcon width={14} height={14} />}
+                {t}
+              </button>
+            ))}
+          </div>
+        </div>
+        </div>
       </div>
     </header>
   );
